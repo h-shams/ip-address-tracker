@@ -1,5 +1,6 @@
 .app {
   box-sizing: border-box;
+  font-family: rubic, sans-serif;
 }
 
 *, *::after, *::before {
