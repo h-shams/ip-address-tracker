@@ -1,18 +1,22 @@
 .input {
   display: flex;
-  flex-flow: row nowrap;
-  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+  flex-flow: row wrap;
+  max-width: 30em;
+  min-width: 10em;
   border-radius: 0.75em;
-  width: fit-content;
+  overflow: hidden;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
 }
 
 .input__input {
   border: none;
   background: #fff;
-  width: 17em;
   padding: 1em 1.5em;
-  border-radius: 0.75em 0 0 0.75em;
   font-size: 1em;
+  flex-grow: 9999;
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 10em;
 }
 
 .input__input:focus {
@@ -26,8 +30,8 @@
   font-weight: bold;
   font-size: 1em;
   padding: 1em 1.5em;
-  border-radius: 0 0.75em 0.75em 0;
   transition: 0.2s ease background-color;
+  flex-grow: 1;
 }
 
 .input__button:hover {
