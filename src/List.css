@@ -1,0 +1,30 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 1em;
+  box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+  max-width: 30em;
+  padding: 1.5em;
+  margin: 1em;
+}
+
+.list__item {
+  padding: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
+.list__item-name {
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: hsl(0, 0%, 59%);
+  margin: 0.5em 0;
+}
+
+.list__item-value {
+  font-size: 1.1em;
+}
