@@ -1,8 +1,12 @@
 import './App.css';
 
+import Header from './Header.js'
+
 function App() {
   return (
-    <div className="App">APP</div>
+    <main className="App">
+      <Header/>
+    </main>
   );
 }
 
