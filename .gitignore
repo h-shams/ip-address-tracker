@@ -3,6 +3,8 @@
 /.pnp
 .pnp.js
 
+public/secrets.json
+
 # testing
 /coverage
 

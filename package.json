@@ -10,6 +10,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-secrets": "./build-secrets.sh",
     "serve": "serve -s ./build",
     "eject": "react-scripts eject"
   },

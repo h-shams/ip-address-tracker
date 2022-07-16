@@ -3,10 +3,10 @@ import './Header.css'
 import Input from './Input.js'
 import List from './List.js'
 
-function Header() {
+function Header(props) {
   return (
     <header className='header'>
-      <Input onSubmit={(str) => console.log(str)}/>
+      <Input onSubmit={props.onSubmit}/>
     </header>
   );
 }

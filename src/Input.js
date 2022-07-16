@@ -10,7 +10,12 @@ function Input(props) {
   }
   
   function handleClick(event) {
-    props.onSubmit(inputValue)
+    const regex = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}$/
+    if ( regex.test(inputValue) ) {
+      props.onSubmit(inputValue)
+    } else {
+      // invalid ip address
+    }
   }
   
   return (
