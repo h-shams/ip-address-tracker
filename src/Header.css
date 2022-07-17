@@ -3,6 +3,7 @@
   background-position: center top;
   padding: 2em;
   padding-bottom: 13em;
+  transition: padding-bottom 0.3s ease;
 }
 
 @media (min-width: 30rem) {

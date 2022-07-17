@@ -18,6 +18,7 @@ function App() {
     lat: 0,
     lng: 0
   })
+  const [headerPadding, setHeaderPadding] = useState('')
   
   useEffect( () => {
     fetch("./secrets.json")
@@ -68,11 +69,15 @@ function App() {
     fetchData(ip, apiKey)
     return 0
   }
+  
+  function handleResize(height){
+    setHeaderPadding((height/2+32)+'px')
+  }
     
   return (
     <main className="app">
-      <Header onSubmit={handleSubmit}/>
-      <List>
+      <Header onSubmit={handleSubmit} paddingBottom={headerPadding}/>
+      <List onResize={handleResize}>
         { data }
       </List>
       <Map {...cordinates}/>
