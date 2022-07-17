@@ -1,0 +1,11 @@
+.map {
+  height: 33em;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+.map__container {
+  height: 100%;
+  width: 100%;
+}

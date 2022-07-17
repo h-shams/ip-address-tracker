@@ -10,6 +10,7 @@
   box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
   max-width: 30em;
   background-color: #fff;
+  z-index: 2;
 }
 
 .list__item {

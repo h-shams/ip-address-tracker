@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Header from './Header.js'
 import List from './List.js'
+import Map from './Map.js'
 
 function App() {
   const [apiKey, setApiKey] = useState('')
@@ -12,6 +13,10 @@ function App() {
     'Location': 'Brooklyn, NY 10001',
     'Timezone': 'UTC -05:00',
     'ISP': 'SpaceX Starlink',
+  })
+  const [cordinates, setCordinates] = useState({
+    lat: 0,
+    lng: 0
   })
   
   useEffect( () => {
@@ -32,7 +37,7 @@ function App() {
   }, [])
   
   function fetchData(ip, apiKey) {
-    let url = 'https://geo.ipify.org/api/v2/country?'
+    let url = 'https://geo.ipify.org/api/v2/country,city?'
               + new URLSearchParams({
                   'apiKey': apiKey,
                   'ipAddress': ip,
@@ -52,6 +57,10 @@ function App() {
         'ISP': data.isp,
       }
       setData(newData)
+      setCordinates({
+        lat: data.location.lat,
+        lng: data.location.lng,
+      })
     })
   }
   
@@ -66,6 +75,7 @@ function App() {
       <List>
         { data }
       </List>
+      <Map {...cordinates}/>
     </main>
   );
 }
