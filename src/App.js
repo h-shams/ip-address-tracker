@@ -26,7 +26,7 @@ function App() {
   }, [])
   
   function fetchData(ip) {
-    const url = `http://ip-api.com/json/${ip}?fields=33612511`
+    const url = `https://ipwho.is/${ip}`
     fetch(url).then( response => {
       if (response.ok) {
         return response.json()
@@ -36,27 +36,17 @@ function App() {
       }
     }).then( data => {
       const newData = {
-        'IP Address': data.query,
-        'Location': `${data.countryCode}, ${data.regionName}`,
-        'Timezone': parseUTCOffset(data.offset),
-        'ISP': data.isp,
+        'IP Address': data.ip,
+        'Location': `${data.country_code}, ${data.region}`,
+        'Timezone': 'UTC ' + data.timezone.utc,
+        'ISP': data.connection.isp,
       }
       setData(newData)
       setCordinates({
-        lat: data.lat,
-        lng: data.lon,
+        lat: data.latitude,
+        lng: data.longitude,
       })
     })
-  }
-  
-  function parseUTCOffset(offset){
-    const sign = offset < 0 ? '-' : '+'
-    offset = Math.abs(offset)
-    let mins = offset/60 % 60;
-    mins = (mins < 10) ? '0'+mins : mins
-    let hours = Math.floor(offset/3600)
-    hours = (hours < 10) ? '0'+hours : hours
-    return `UTC ${sign}${hours}:${mins}`
   }
   
   function handleSubmit(ip){
