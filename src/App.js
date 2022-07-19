@@ -7,7 +7,6 @@ import List from './List.js'
 import Map from './Map.js'
 
 function App() {
-  const [apiKey, setApiKey] = useState('')
   const [data, setData] = useState({
     'IP Address': '192.212.174.101',
     'Location': 'Brooklyn, NY 10001',
@@ -21,28 +20,13 @@ function App() {
   const [headerPadding, setHeaderPadding] = useState('')
   
   useEffect( () => {
-    fetch("./secrets.json")
-    .then( response => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        console.log('error while getting "secrets.json"')
-      }        
-    }).then( data => {
-      setApiKey(data.apiKey)
-      fetchData('', data.apiKey)
-    }).catch( error => {
-      console.log('error while tring to get "secrets.json" file')
-    })
-        
+    fetchData('')
+    
+    // eslint-disable-next-line
   }, [])
   
-  function fetchData(ip, apiKey) {
-    let url = 'https://geo.ipify.org/api/v2/country,city?'
-              + new URLSearchParams({
-                  'apiKey': apiKey,
-                  'ipAddress': ip,
-                })
+  function fetchData(ip) {
+    const url = `http://ip-api.com/json/${ip}?fields=33612511`
     fetch(url).then( response => {
       if (response.ok) {
         return response.json()
@@ -52,21 +36,31 @@ function App() {
       }
     }).then( data => {
       const newData = {
-        'IP Address': data.ip,
-        'Location': `${data.location.country}, ${data.location.region}`,
-        'Timezone': `UTC ${data.location.timezone}`,
+        'IP Address': data.query,
+        'Location': `${data.countryCode}, ${data.regionName}`,
+        'Timezone': parseUTCOffset(data.offset),
         'ISP': data.isp,
       }
       setData(newData)
       setCordinates({
-        lat: data.location.lat,
-        lng: data.location.lng,
+        lat: data.lat,
+        lng: data.lon,
       })
     })
   }
   
+  function parseUTCOffset(offset){
+    const sign = offset < 0 ? '-' : '+'
+    offset = Math.abs(offset)
+    let mins = offset/60 % 60;
+    mins = (mins < 10) ? '0'+mins : mins
+    let hours = Math.floor(offset/3600)
+    hours = (hours < 10) ? '0'+hours : hours
+    return `UTC ${sign}${hours}:${mins}`
+  }
+  
   function handleSubmit(ip){
-    fetchData(ip, apiKey)
+    fetchData(ip)
     return 0
   }
   

@@ -13,7 +13,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-secrets": "./build-secrets.sh",
     "serve": "serve -s ./build",
     "eject": "react-scripts eject"
   },
@@ -22,16 +21,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {
-        "globalModulePaths": [
-          "*/**/leaflet.css",
-          "node_modules/leadflet/dist/leaflet.css"
-        ]
-      }
-    }
   },
   "browserslist": {
     "production": [
