@@ -9,6 +9,7 @@
     "react-leaflet": "^4.0.1",
     "react-scripts": "5.0.1"
   },
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
