@@ -24,7 +24,7 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_KEY }}
       - run: npm run build
-      - run: echo "{ \"apiKey\": \"$APIKEY\" }" >> ./build/secrets.json
+      - run: echo "{ \"apiKey\":\"$APIKEY\" }" > ./build/secrets.json
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
