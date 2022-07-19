@@ -15,7 +15,7 @@ function List(props) {
   }
   
   const listContainerRef = useRef(null)
-  
+
   useEffect( () => {
     const listElement = listContainerRef.current
     const ob = new ResizeObserver((entities) => {
@@ -30,8 +30,8 @@ function List(props) {
       ob.unobserve(listElement)
     })
     
-    
-  }, [])
+    // eslint-disable-next-line    
+  }, [props.onResize])
       
   return (
     <ul className="list" ref={listContainerRef}>

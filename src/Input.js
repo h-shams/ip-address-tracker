@@ -27,7 +27,7 @@ function Input(props) {
              onChange={handleChange}
       />
       <button className="input__button" onClick={handleClick}>
-        <img src={arrow}/>
+        <img alt="enter" src={arrow}/>
       </button>
     </div>
   );

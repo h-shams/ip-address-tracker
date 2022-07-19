@@ -22,6 +22,16 @@
       "react-app/jest"
     ]
   },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "globalModulePaths": [
+          "*/**/leaflet.css",
+          "node_modules/leadflet/dist/leaflet.css"
+        ]
+      }
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -36,5 +46,8 @@
   },
   "devDependencies": {
     "serve": "^14.0.1"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5"
   }
 }
