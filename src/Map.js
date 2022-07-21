@@ -12,16 +12,14 @@ function SetMapCordinates(props) {
 function Map(props) {  
   const url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   return (
-    <div className="map">
-      <MapContainer className="map__container" center={[51.505, -0.09]} zoom={13} zoomControl={false} scrollWheelZoom={false}>
-        <SetMapCordinates {...props}/>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url={url}
-        />
-        <ZoomControl position='bottomright'/>
-      </MapContainer>
-    </div>
+    <MapContainer className="map" center={[51.505, -0.09]} zoom={13} zoomControl={false} scrollWheelZoom={false}>
+      <SetMapCordinates {...props}/>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url={url}
+      />
+      <ZoomControl position='bottomright'/>
+    </MapContainer>
   );
 }
 

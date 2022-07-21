@@ -1,7 +1,9 @@
 .app {
   box-sizing: border-box;
   font-family: rubic, sans-serif;
-  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
 }
 
 *, *::after, *::before {

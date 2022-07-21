@@ -3,7 +3,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 import Header from './Header.js'
-import List from './List.js'
 import Map from './Map.js'
 
 function App() {
@@ -60,10 +59,8 @@ function App() {
     
   return (
     <main className="app">
-      <Header onSubmit={handleSubmit} paddingBottom={headerPadding}/>
-      <List onResize={handleResize}>
-        { data }
-      </List>
+      <Header onSubmit={handleSubmit} paddingBottom={headerPadding}
+              onResize={handleResize} data={data}/>
       <Map {...cordinates}/>
     </main>
   );

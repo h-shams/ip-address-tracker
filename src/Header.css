@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   background-image: url('./images/pattern-bg.png');
   background-position: center top;
   padding: 2em;

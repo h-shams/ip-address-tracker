@@ -1,11 +1,7 @@
 .map {
-  height: 33em;
+  flex-grow: 1;
+  height: 25em;
   width: 100%;
   z-index: 1;
   position: relative;
-}
-
-.map__container {
-  height: 100%;
-  width: 100%;
 }

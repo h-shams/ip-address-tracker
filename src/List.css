@@ -1,6 +1,7 @@
 .list {
   list-style: none;
   position: absolute;
+  top: 100%;
   right: 0;
   left: 0;
   transform: translate(0,-50%);
